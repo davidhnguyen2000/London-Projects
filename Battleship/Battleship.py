@@ -1,5 +1,6 @@
 import random
 BATTLESHIP_CHAR = "@"
+OPEN_SPACE_CHAR = "*"
 
 
 def makeGameboard(gameBoardSize):
@@ -12,78 +13,67 @@ def makeGameboard(gameBoardSize):
             board[yCoor][xCoor] = "*"
     return board
 
-def placeBoatComputer(battleshipSize, gameBoardSize):
-    "This places one boat on the gameBoard"
+
+def placeBoat(startX, startY, direction, battleshipSize, gameBoardSize, gameBoard):
     noShip = True
     onBoard = True
-    startXCoordinate = random.randint(0, 9)
-    startYCoordinate = random.randint(0, 9)
-    direction = random.randint(0, 3)
-    # print(startXCoordinate, startYCoordinate, direction)
-    if computerGameBoard[startXCoordinate][startYCoordinate] == "*": # starts placement of the boat if there is a free space
+    if gameBoard[startX][startY] == OPEN_SPACE_CHAR: # starts placement of the boat if there is a free space
         if direction == 0 or direction == 2:
             if direction == 0:
                 direction2 = -1
             else:
                 direction2 = 1
             for xCoor in range(battleshipSize):  # check if boat placement is good
-                newXCoor = startXCoordinate + direction2*xCoor
+                newXCoor = startX + direction2*xCoor
                 onBoard = newXCoor < gameBoardSize and newXCoor >= 0
                 if onBoard:
-                    noShip = computerGameBoard[newXCoor][startYCoordinate] == "*"
+                    noShip = gameBoard[newXCoor][startY] == OPEN_SPACE_CHAR
                 if not noShip or not onBoard:
-                    # print('failed placement')
-                    placeBoatComputer(battleshipSize, gameBoardSize)
-                    return
+                    return False
             if noShip and onBoard:  # places boat
                 for xCoor in range(battleshipSize):
-                    newXCoor = startXCoordinate + direction2 * xCoor
-                    computerGameBoard[newXCoor][startYCoordinate] = BATTLESHIP_CHAR
-                    # print('placed something')
+                    newXCoor = startX + direction2 * xCoor
+                    gameBoard[newXCoor][startY] = BATTLESHIP_CHAR
+                    print('placed something')
         elif direction == 1 or direction == 3:
             if direction == 1:
                 direction2 = -1
             else:
                 direction2 = 1
             for yCoor in range(battleshipSize): # check if boat placement is good
-                newYCoor = startYCoordinate + direction2 * yCoor
+                newYCoor = startY + direction2 * yCoor
                 onBoard = newYCoor < gameBoardSize and newYCoor >= 0
                 if onBoard:
-                    noShip = computerGameBoard[startXCoordinate][newYCoor] == "*"
+                    noShip = gameBoard[startX][newYCoor] == OPEN_SPACE_CHAR
                 if not noShip or not onBoard:
                     # print('failed placement')
-                    placeBoatComputer(battleshipSize, gameBoardSize)
-                    return
+                    return False
             if noShip and onBoard: # places boat
                 for yCoor in range(battleshipSize):
-                    newYCoor = startYCoordinate + direction2 * yCoor
-                    computerGameBoard[startXCoordinate][newYCoor] = BATTLESHIP_CHAR
-                    # print('placed something')
-        return
+                    newYCoor = startY + direction2 * yCoor
+                    gameBoard[startX][newYCoor] = BATTLESHIP_CHAR
+                    print('placed something')
+        return True
     else:
-        # print('failed start placement')
+        return False
+
+
+def placeBoatComputer(battleshipSize, gameBoardSize):
+    "This places one boat on the computer gameBoard randomly"
+    startXCoordinate = random.randint(0, 9)
+    startYCoordinate = random.randint(0, 9)
+    direction = random.randint(0, 3)
+    if not placeBoat(startXCoordinate, startYCoordinate, direction, battleshipSize, gameBoardSize, computerGameBoard):
         placeBoatComputer(battleshipSize, gameBoardSize)
-        return
     return
 
 def placeBoatPlayer(battleshipSize, gameBoardSize):
     startX = int(input("X coordinate of start:"))
     startY = int(input("Y coordinate of start:"))
     direction = int(input("direction\n 1: up\n 2: down\n 3: right\n 4: left\n choice:"))
-    if direction == 1:
-        for yCoor in range(battleshipSize):
-            playerGameBoard[startX][startY - yCoor] = "@"
-    elif direction == 2:
-        for yCoor in range(battleshipSize):
-            playerGameBoard[startX][startY + yCoor] = "@"
-    elif direction == 3:
-        for xCoor in range(battleshipSize):
-            playerGameBoard[startX + xCoor][startY] = "@"
-    elif direction == 4:
-        for xCoor in range(battleshipSize):
-            playerGameBoard[startX - xCoor][startY] = "@"
-    else:
-        print("Invalid input for direction")
+    if not placeBoat(startX, startY, direction, battleshipSize, gameBoardSize, playerGameBoard):
+        print("Invalid placement")
+        placeBoatPlayer(battleshipSize, gameBoardSize)
     return
 
 def displayGameboardWithBoats(board):
@@ -102,8 +92,8 @@ def displayGameboard(board):
     for y in range(GAME_BOARD_SIZE):
         print(y, end=' ')
         for x in range(GAME_BOARD_SIZE):
-            if board[x][y] == '@':
-                print("*", end=' ')
+            if board[x][y] == BATTLESHIP_CHAR:
+                print(OPEN_SPACE_CHAR, end=' ')
             else:
                 print(board[x][y], end=' ')
         print()
@@ -145,7 +135,7 @@ playerGameBoard = createPlayerGameboard(GAME_BOARD_SIZE)
 displayGameboardWithBoats(computerGameBoard)
 displayGameboard(playerGameBoard)
 placeBoatPlayer(BATTLESHIP_1_SIZE, GAME_BOARD_SIZE)
-displayGameboard(playerGameBoard)
+displayGameboardWithBoats(playerGameBoard)
 # while totalHits < 13:
 #     displayGameboard(computerGameBoard)
 #     guess(totalHits)
