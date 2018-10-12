@@ -179,8 +179,8 @@ placeBoatPlayer(BATTLESHIP_4_SIZE, GAME_BOARD_SIZE)
 displayGameboardWithBoats(playerGameBoard)
 
 
-while playerHits < 13 and computerHits < 13:
-    displayGameboard(computerGameBoard)
-    guess(totalHits)
-    print()
-print("You win!")
+# while playerHits < 13 and computerHits < 13:
+#     displayGameboard(computerGameBoard)
+#     guess(totalHits)
+#     print()
+# print("You win!")
