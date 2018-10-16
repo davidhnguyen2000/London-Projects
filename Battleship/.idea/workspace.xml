@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a4c53df-7b1c-4435-a755-50072a9756ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Gameboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleship.py" beforeDir="false" afterPath="$PROJECT_DIR$/Battleship.py" afterDir="false" />
     </list>
@@ -15,33 +16,34 @@
     <session id="-1878373699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="Python" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="py" value="1287" />
-          <entry key="txt" value="89" />
+          <entry key="py" value="1344" />
+          <entry key="txt" value="221" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="95" />
-          <entry key="Python" value="1287" />
+          <entry key="PLAIN_TEXT" value="227" />
+          <entry key="Python" value="1344" />
         </counts>
       </usages-collector>
     </session>
@@ -51,13 +53,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Battleship.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="112" column="146" selection-start-line="112" selection-start-column="146" selection-end-line="112" selection-end-column="146" />
-              <folding>
-                <element signature="e#436#2314#0" />
-                <element signature="e#4243#4376#0" />
-                <marker date="1539339782837" expanded="true" signature="4395:5246" ph="..." />
-              </folding>
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gameboard.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -83,6 +89,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Gameboard.py" />
         <option value="$PROJECT_DIR$/Battleship.py" />
       </list>
     </option>
@@ -105,17 +112,15 @@
               <item name="Battleship" type="b2602c69:ProjectViewProjectNode" />
               <item name="Battleship" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Battleship" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Battleship" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -137,7 +142,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.3" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -198,19 +203,33 @@
       <option name="project" value="LOCAL" />
       <updated>1539188736915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed player boat placement and put in preliminary AI code for guessing where battleships are for the computer">
+      <created>1539339834032</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539339834033</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed player boat placement and put in preliminary AI code for guessing where battleships are for the computer">
+      <created>1539340405932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539340405932</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13261001" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26524064" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2802139" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -230,18 +249,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="Split the place boat functions and made recursion simpler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split the place boat functions and made recursion simpler" />
+    <MESSAGE value="Fixed player boat placement and put in preliminary AI code for guessing where battleships are for the computer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed player boat placement and put in preliminary AI code for guessing where battleships are for the computer" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Battleship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="112" column="146" selection-start-line="112" selection-start-column="146" selection-end-line="112" selection-end-column="146" />
-          <folding>
-            <element signature="e#436#2314#0" />
-            <element signature="e#4243#4376#0" />
-            <marker date="1539339782837" expanded="true" signature="4395:5246" ph="..." />
-          </folding>
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gameboard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
